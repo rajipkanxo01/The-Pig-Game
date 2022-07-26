@@ -47,17 +47,24 @@ function rollDice() {
 rollButton.addEventListener('click', rollDice);
 
 
+
+
 // change between player 1 and player 2 functionality
 function changePlayer() {
     document.getElementById(`current-${activePlayer}`).textContent = 0;
-    currentScore = 0;
     // active player value changes to 2 if current value is 1 and vice versa
     activePlayer = activePlayer === 1 ? 2 : 1;
     player1El.classList.toggle('player-active');
     player2El.classList.toggle('player-active');
+    currentScore = 0;
 }
 
+// add currentScore when hold button is clicked
+function addScore() {
+    score[activePlayer-1] += currentScore;
+    document.getElementById(`score-${activePlayer}`).textContent = score[activePlayer-1];
+}
+
+holdButton.addEventListener('click',addScore);
 holdButton.addEventListener('click', changePlayer);
 
-
-// add scoring
