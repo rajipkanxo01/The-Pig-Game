@@ -120,15 +120,15 @@ main {
     text-transform: uppercase;
 }
 
-.btn--new {
+.btn-new {
     top: 5%;
 }
 
-.btn--roll {
+.btn-roll {
     top: 65%;
 }
 
-.btn--hold {
+.btn-hold {
     top: 80%;
     left: 42%;
 }
@@ -138,6 +138,20 @@ main {
     height: 90px;
     top: 27%;
     left: 455px;
+}
+
+/*to hide dice at the beginning of the game*/
+.hidden {
+    display: none;
+}
+
+.player-winner {
+    background-color: #2f2f2f;
+}
+
+.player-winner .name {
+    font-weight: 700;
+    color: #c7365f;
 }
 
 
