@@ -8,19 +8,32 @@ const newGameButton = document.querySelector('.btn-new');
 const player1El = document.querySelector('.player-1');
 const player2El = document.querySelector('.player-2');
 
+let score, activePlayer, currentScore, playing;
 
-//starting conditions
-score1El.textContent = 0;
-score2El.textContent = 0;
-diceEl.classList.add('hidden');
+// reset game when new game button is placed
+function resetGame() {
+  //starting conditions
+  score1El.textContent = 0;
+  score2El.textContent = 0;
+  diceEl.classList.add('hidden');
 
-
-const score = [0, 0];
+  score = [0, 0];
 // 1 for player 1 and 2 for player 2
-let activePlayer = 1;
-let currentScore = 0;
-let playing = true;
+  activePlayer = 1;
+  currentScore = 0;
+  playing = true;
 
+  // changing current score of both players
+  document.getElementById('current-1').textContent = 0;
+  document.getElementById('current-2').textContent = 0;
+
+  player1El.classList.remove('player-winner');
+  player2El.classList.remove('player-winner');
+  player1El.classList.add('player-active');
+  player2El.classList.remove('player-active')
+}
+
+resetGame();
 
 // rolling dice
 function rollDice() {
@@ -76,4 +89,4 @@ function addScore() {
 }
 
 holdButton.addEventListener('click', addScore);
-
+newGameButton.addEventListener('click', resetGame);
